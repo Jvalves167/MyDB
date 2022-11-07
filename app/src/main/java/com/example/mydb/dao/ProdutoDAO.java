@@ -1,5 +1,6 @@
 package com.example.mydb.dao;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -21,12 +22,39 @@ public class ProdutoDAO {
         database = dbhelper.getWritableDatabase();
     }
 
-    public ProdutoDAO(Integer id, String nome, String descricao, String foto, String valor) {
+    public ProdutoDAO(Integer id, String nome, String descricao, String valor, String foto) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
         this.foto = foto;
         this.valor = valor;
+    }
+
+    public ProdutoDAO(Integer id, String nome, String descricao, String valor, String foto, Context ctx) {
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.foto = foto;
+        this.valor = valor;
+
+        dbhelper = new DBHelper(ctx);
+        database = dbhelper.getWritableDatabase();
+    }
+
+    public boolean inserir(){
+        ContentValues cv = new ContentValues();
+        cv.put("nome", this.nome);
+        cv.put("descricao", this.descricao);
+        cv.put("foto", this.foto);
+        cv.put("valor", this.valor);
+
+        long ret = database.insert("produto",
+                null,cv);
+
+        if(ret > 0){
+            return true;
+        }
+        return false;
     }
 
     public Integer getId() {

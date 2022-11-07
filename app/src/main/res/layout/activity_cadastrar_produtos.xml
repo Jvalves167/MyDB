@@ -11,13 +11,17 @@
       android:id="@+id/etNomeProduto"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_marginTop="60dp"
-      android:ems="10"
+      android:layout_marginTop="25dp"
+      android:clickable="false"
       android:hint="NOME"
       android:inputType="textPersonName"
+      android:nestedScrollingEnabled="false"
+      android:padding="20dp"
+      android:shadowColor="#00000000"
+      android:singleLine="false"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
+      app:layout_constraintTop_toBottomOf="@+id/textView" />
 
   <EditText
       android:id="@+id/etdescProduto"
@@ -27,6 +31,7 @@
       android:ems="10"
       android:hint="DESCRIÇÃO"
       android:inputType="textPersonName"
+      android:padding="20dp"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/etNomeProduto" />
@@ -39,6 +44,7 @@
       android:ems="10"
       android:hint="VALOR"
       android:inputType="textPersonName"
+      android:padding="20dp"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/etdescProduto" />
@@ -55,9 +61,14 @@
 
   <TextView
       android:id="@+id/textView"
-      android:layout_width="wrap_content"
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
+      android:layout_marginTop="30dp"
       android:text="CADASTRO"
-      tools:layout_editor_absoluteX="154dp"
-      tools:layout_editor_absoluteY="11dp" />
+      android:textAlignment="center"
+      android:textSize="24sp"
+      android:textStyle="bold"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:layout_editor_absoluteX="154dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
